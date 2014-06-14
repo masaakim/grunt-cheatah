@@ -29,9 +29,9 @@ module.exports = function (grunt) {
     },
 
     cheatah: {
-      options: {
+      build: {
         files: {
-          'tmp/cheatah.html': ['test/fixtures.css']
+          'tmp/cheatah.html': ['test/fixture.css']
         }
       }
     }
@@ -39,7 +39,7 @@ module.exports = function (grunt) {
 
   grunt.loadTasks('tasks');
 
-  grunt.registerTask('test', ['clean', 'cheatah', 'nodeunit']);
+  grunt.registerTask('test', ['clean', 'cheatah:build']);
   grunt.registerTask('default', ['jshint', 'test']);
 
 };

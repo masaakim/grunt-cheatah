@@ -28,6 +28,5 @@
     "test": "grunt test"
   },
   "dependencies": {
-    "cheatah": "0.0.6"
   }
 }

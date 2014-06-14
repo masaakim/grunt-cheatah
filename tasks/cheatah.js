@@ -12,6 +12,7 @@ module.exports = function (grunt) {
 
 
     grunt.registerMultiTask('cheatah', 'grunt plugin for Cheatah styleguide generator', function () {
+        var fs = require('fs')
         var Cheatah = require('cheatah')
 
         var options = this.options({
@@ -28,10 +29,8 @@ module.exports = function (grunt) {
                     return true;
                 }
             }).map(function (filepath) {
-                var css = grunt.file.read(filepath)
-                var cheatah = new Cheatah(css)
-
-                return cheatah.build()
+                var cheatah = new Cheatah(filepath)
+                cheatah.build()
             }).join(grunt.util.normalizelf(options.separator));
 
             grunt.file.write(file.dest, src);
